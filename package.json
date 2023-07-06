@@ -1,6 +1,6 @@
 {
   "name": "loco_path",
-  "version": "0.0.1",
+  "version": "0.0.11",
   "description": "A lightweight library to handle annoying problems for local paths in local repository in node_js application",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -11,7 +11,7 @@
     "package.json"
   ],
   "scripts": {
-    "test": "echo hello",
+    "test": "ts-node src/test.ts",
     "build": "tsc"
   },
   "author": "Bert Liu",

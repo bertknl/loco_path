@@ -2,17 +2,21 @@ const assert  = require("node:assert");
 const fs = require('fs');
 const path = require('node:path'); 
 
-function lPath(path_name: string): string {
-  assert(ifValidPath(path_name), "Invalid path name");
-  assert(!path_name.includes("/") && !path_name.includes("\\"), "Invalid path name");
+function lPath(name: string): string {
+   
+  assert(hasNoURLParts(name), "Invalid path name");
+  assert(isValidFileName(name), "Invalid path name");
 
   let basePath = getBasePath();
   let folder_name = "loco";
-  return path.resolve(path.join(basePath, folder_name, path_name));
+  return path.resolve(path.join(basePath, folder_name, name));
 }
 
-function ifValidPath(path: string): boolean {
-  return /^(\/?[a-z0-9]+)+$/.test(path);
+function isValidFileName(name: string): boolean{
+  return /^[a-z0-9_.@()-]+\.txt$/i.test(name);
+}
+function hasNoURLParts(name: String): boolean{
+  return !name.includes("/") && !name.includes("\\");
 }
 
 function getBasePath(pathConfigJSON?: string) {
