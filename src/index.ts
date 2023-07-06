@@ -4,7 +4,7 @@ const path = require('node:path');
 
 function lPath(name: string): string {
    
-  assert(hasNoURLParts(name), "Invalid path name");
+  assert(hasNoURLParts(name), "Have url parts");
   assert(isValidFileName(name), "Invalid path name");
 
   let basePath = getBasePath();
