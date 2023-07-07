@@ -1,2 +1,3 @@
-const lPath = require("./dist/index")
-lPath("a-s");
+import lPath from "./src/index.js";
+
+console.log(lPath("asd.js"));
